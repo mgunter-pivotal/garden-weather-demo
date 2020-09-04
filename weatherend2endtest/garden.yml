@@ -1,0 +1,25 @@
+kind: Module
+description: Spring weather data test
+type: container
+name: weather-end2end-test
+disabled: false
+services:
+  - name: weather-end2end-test
+    dependencies:
+      - weather-data
+      - gps-data
+      - comms-broker
+      - weather-app  
+tests:
+  - name: weather
+    command:
+      - /bin/sh
+      - '-c'
+    args: ["curl -v http://weather-data:9091/nt-ms1/get-data > out.txt"]
+    timeout: 30
+  - name: gps
+    command:
+      - /bin/sh
+      - '-c'
+    args: ["curl -v http://gps-data:9092/nt-ms2/get-data > out.txt"]
+    timeout: 30  

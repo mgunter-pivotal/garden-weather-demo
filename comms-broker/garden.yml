@@ -1,0 +1,31 @@
+kind: Module
+description: Spring weather data source
+type: container
+name: comms-broker
+disabled: false
+hotReload:
+  sync:
+    - target: /target
+      source: target
+services:
+  - name: comms-broker
+    ports:
+      - name: http
+        containerPort: 9090
+        servicePort: 9090
+    ingresses:
+      - path: /
+        port: http
+        hostname: comms.local.app.garden
+    dependencies:
+      - weather-data
+      - gps-data
+tests:
+  - name: gps-test
+    command:
+      - /bin/sh
+      - '-c'
+    args: ["curl -v http://comms-broker:9090/nt-ms2/get-data 2>&1  "]
+    timeout: 60
+        # dependencies:
+        #   - gps-data  

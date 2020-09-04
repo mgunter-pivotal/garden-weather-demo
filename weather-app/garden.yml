@@ -1,0 +1,33 @@
+kind: Module
+description: Spring weather app
+type: container
+name: weather-app
+disabled: false
+hotReload:
+  sync:
+    - target: /target
+      source: target
+services:
+  - name: weather-app
+    ports:
+      - name: http
+        containerPort: 8090
+        servicePort: 8090
+    healthCheck:
+      httpGet:
+        path: /weather
+        port: http
+    ingresses:
+      - path: /
+        port: http
+        hostname: weather-app.local.app.garden
+    dependencies:
+      - comms-broker    
+tests:
+  - name: unit
+    command:
+      - /bin/sh
+      - '-c'
+    args: ["curl -v http://weather-app:8090/weather > out.txt"]
+    timeout: 30
+    #this is a change
