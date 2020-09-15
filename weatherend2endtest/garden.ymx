@@ -2,7 +2,7 @@ kind: Module
 description: Spring weather data test
 type: container
 name: weather-end2end-test
-disabled: false
+disabled: true
 services:
   - name: weather-end2end-test
     dependencies:

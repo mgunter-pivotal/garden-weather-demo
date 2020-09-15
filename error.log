@@ -1,86 +1,52 @@
 
-[2020-09-02T15:55:54.635Z] Error: Error deploying weather-end2end-test: CrashLoopBackOff - back-off 5m0s restarting failed container=weather-end2end-test pod=weather-end2end-test-5556dcd89-c5qkb_weather-monitor-dev-default(9a39c6a0-cad4-46bf-b23e-0649ee8e9c33)
+[2020-09-14T14:49:00.813Z] Error:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 10.100.214.237...
+* TCP_NODELAY set
+* connect to 10.100.214.237 port 8090 failed: Connection refused
+* Failed to connect to weather-app port 8090: Connection refused
+* Closing connection 0
+curl: (7) Failed to connect to weather-app port 8090: Connection refused
 
-━━━ Events ━━━
-Deployment weather-end2end-test: ScalingReplicaSet - Scaled up replica set weather-end2end-test-5556dcd89 to 1
-Deployment weather-end2end-test: ScalingReplicaSet - Scaled down replica set weather-end2end-test-75f4cf94dc to 0
-Pod weather-end2end-test-5556dcd89-c5qkb: Scheduled - Successfully assigned weather-monitor-dev-default/weather-end2end-test-5556dcd89-c5qkb to docker-desktop
-Pod weather-end2end-test-5556dcd89-c5qkb: Pulled - Container image "weather-end2end-test:v-3cb642cc11" already present on machine
-Pod weather-end2end-test-5556dcd89-c5qkb: Created - Created container weather-end2end-test
-Pod weather-end2end-test-5556dcd89-c5qkb: Started - Started container weather-end2end-test
-Pod weather-end2end-test-5556dcd89-c5qkb: BackOff - Back-off restarting failed container
-
-━━━ Pod logs ━━━
-<Showing last 20 lines per pod in this Deployment. Run the following command for complete logs>
-$ kubectl -n weather-monitor-dev-default --context=docker-desktop logs deployment/weather-end2end-test
-
-****** weather-end2end-test-5556dcd89-c5qkb ******
------- weather-end2end-test ------<no logs>
-    at Object.<anonymous> (/snapshot/project/tmp/dist/build/src/plugins/kubernetes/status/status.js:0)
+    at Object.<anonymous> (/snapshot/project/tmp/dist/build/src/tasks/test.js:0)
     at Generator.next (<anonymous>)
-    at fulfilled (/snapshot/project/tmp/dist/build/src/plugins/kubernetes/status/status.js:0)
-Error Details:
-serviceName: weather-end2end-test
-status:
-  state: unhealthy
-  lastMessage: >-
-    CrashLoopBackOff - back-off 5m0s restarting failed
-    container=weather-end2end-test
-    pod=weather-end2end-test-5556dcd89-c5qkb_weather-monitor-dev-default(9a39c6a0-cad4-46bf-b23e-0649ee8e9c33)
-  logs: "\e[37m━━━ Events ━━━\e[39m\n\e[94mDeployment weather-end2end-test:\e[39m \e[37mScalingReplicaSet - Scaled up replica set weather-end2end-test-5556dcd89 to 1\e[39m\n\e[94mDeployment weather-end2end-test:\e[39m \e[37mScalingReplicaSet - Scaled down replica set weather-end2end-test-75f4cf94dc to 0\e[39m\n\e[94mPod weather-end2end-test-5556dcd89-c5qkb:\e[39m \e[37mScheduled - Successfully assigned weather-monitor-dev-default/weather-end2end-test-5556dcd89-c5qkb to docker-desktop\e[39m\n\e[94mPod weather-end2end-test-5556dcd89-c5qkb:\e[39m \e[37mPulled - Container image \"weather-end2end-test:v-3cb642cc11\" already present on machine\e[39m\n\e[94mPod weather-end2end-test-5556dcd89-c5qkb:\e[39m \e[37mCreated - Created container weather-end2end-test\e[39m\n\e[94mPod weather-end2end-test-5556dcd89-c5qkb:\e[39m \e[37mStarted - Started container weather-end2end-test\e[39m\n\e[94mPod weather-end2end-test-5556dcd89-c5qkb:\e[39m \e[33mBackOff - Back-off restarting failed container\e[39m\e[37m\e[39m\n\e[37m\e[39m\n\e[37m━━━ Pod logs ━━━\e[39m\n\e[37m\e[39m\e[90m<Showing last 20 lines per pod in this Deployment. Run the following command for complete logs>\e[39m\n\e[90m$ kubectl -n weather-monitor-dev-default --context=docker-desktop logs deployment/weather-end2end-test\e[39m\n\e[94m\e[39m\n\e[94m****** weather-end2end-test-5556dcd89-c5qkb ******\e[39m\n\e[94m\e[39m\e[90m------ weather-end2end-test ------\e[39m<no logs>"
-  resource:
-    kind: Deployment
-    apiVersion: apps/v1
-    metadata:
-      name: weather-end2end-test
-      namespace: weather-monitor-dev-default
-      selfLink: >-
-        /apis/apps/v1/namespaces/weather-monitor-dev-default/deployments/weather-end2end-test
-      uid: f7e3579b-f49a-4af7-bbd6-62af9532feb8
-      resourceVersion: '4346939'
-      generation: 11
-      creationTimestamp: '2020-09-01T18:14:34Z'
-      labels:
-        module: weather-end2end-test
-        service: weather-end2end-test
-      annotations:
-        deployment.kubernetes.io/revision: '11'
-        garden.io/configured.replicas: '1'
-        garden.io/generated: 'true'
-        garden.io/manifest-hash: a0d0f5b0aa6f114f45cad51531beadbe9f2bac86ccb4d9f7e50a6429df8c8abe
-        garden.io/version: v-3cb642cc11
-        kubectl.kubernetes.io/last-applied-configuration: >
-          {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"garden.io/configured.replicas":"1","garden.io/generated":"true","garden.io/manifest-hash":"a0d0f5b0aa6f114f45cad51531beadbe9f2bac86ccb4d9f7e50a6429df8c8abe","garden.io/version":"v-3cb642cc11"},"labels":{"module":"weather-end2end-test","service":"weather-end2end-test"},"name":"weather-end2end-test","namespace":"weather-monitor-dev-default"},"spec":{"replicas":1,"revisionHistoryLimit":3,"selector":{"matchLabels":{"service":"weather-end2end-test"}},"strategy":{"rollingUpdate":{"maxSurge":1,"maxUnavailable":1},"type":"RollingUpdate"},"template":{"metadata":{"labels":{"module":"weather-end2end-test","service":"weather-end2end-test"}},"spec":{"containers":[{"env":[{"name":"GARDEN_VERSION","value":"v-3cb642cc11"},{"name":"GARDEN_MODULE_VERSION","value":"v-3cb642cc11"},{"name":"GARDEN_DEPENDENCIES","value":"[{\"moduleName\":\"weather-end2end-test\",\"name\":\"weather-end2end-test\",\"type\":\"build\",\"version\":\"v-3cb642cc11\"},{\"moduleName\":\"weather-data\",\"name\":\"weather-data\",\"type\":\"service\",\"version\":\"v-3106eed20a\"},{\"moduleName\":\"gps-data\",\"name\":\"gps-data\",\"type\":\"service\",\"version\":\"v-52ba08603b\"},{\"moduleName\":\"comms-broker\",\"name\":\"comms-broker\",\"type\":\"service\",\"version\":\"v-e99ac7ca34\"},{\"moduleName\":\"weather-app\",\"name\":\"weather-app\",\"type\":\"service\",\"version\":\"v-20d75c6770\"}]"},{"name":"POD_HOST_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}},{"name":"POD_IP","valueFrom":{"fieldRef":{"fieldPath":"status.podIP"}}},{"name":"POD_NAME","valueFrom":{"fieldRef":{"fieldPath":"metadata.name"}}},{"name":"POD_NAMESPACE","valueFrom":{"fieldRef":{"fieldPath":"metadata.namespace"}}},{"name":"POD_NODE_NAME","valueFrom":{"fieldRef":{"fieldPath":"spec.nodeName"}}},{"name":"POD_SERVICE_ACCOUNT","valueFrom":{"fieldRef":{"fieldPath":"spec.serviceAccountName"}}},{"name":"POD_UID","valueFrom":{"fieldRef":{"fieldPath":"metadata.uid"}}}],"image":"weather-end2end-test:v-3cb642cc11","imagePullPolicy":"IfNotPresent","name":"weather-end2end-test","resources":{"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"10m","memory":"64Mi"}},"securityContext":{"allowPrivilegeEscalation":false}}],"dnsPolicy":"ClusterFirst","restartPolicy":"Always","terminationGracePeriodSeconds":5}}}}
-      managedFields: []
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          service: weather-end2end-test
-      template:
-        metadata:
-          creationTimestamp: null
-          labels:
-            module: weather-end2end-test
-            service: weather-end2end-test
-        spec:
-          containers: []
-          restartPolicy: Always
-          terminationGracePeriodSeconds: 5
-          dnsPolicy: ClusterFirst
-          securityContext: {}
-          schedulerName: default-scheduler
-      strategy:
-        type: RollingUpdate
-        rollingUpdate:
-          maxUnavailable: 1
-          maxSurge: 1
-      revisionHistoryLimit: 3
-      progressDeadlineSeconds: 600
-    status:
-      observedGeneration: 11
-      replicas: 1
-      updatedReplicas: 1
-      unavailableReplicas: 1
-      conditions: []
+    at fulfilled (/snapshot/project/tmp/dist/build/src/tasks/test.js:0)
 
+[2020-09-14T14:55:50.637Z] Error:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 10.100.190.183...
+* TCP_NODELAY set
+* connect to 10.100.190.183 port 9090 failed: Connection refused
+* Failed to connect to comms-broker port 9090: Connection refused
+* Closing connection 0
+curl: (7) Failed to connect to comms-broker port 9090: Connection refused
+
+    at Object.<anonymous> (/snapshot/project/tmp/dist/build/src/tasks/test.js:0)
+    at Generator.next (<anonymous>)
+    at fulfilled (/snapshot/project/tmp/dist/build/src/tasks/test.js:0)
+
+[2020-09-14T14:57:30.433Z] Error:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 10.100.190.183...
+* TCP_NODELAY set
+* connect to 10.100.190.183 port 9090 failed: Connection refused
+* Failed to connect to comms-broker port 9090: Connection refused
+* Closing connection 0
+curl: (7) Failed to connect to comms-broker port 9090: Connection refused
+
+    at Object.<anonymous> (/snapshot/project/tmp/dist/build/src/tasks/test.js:0)
+    at Generator.next (<anonymous>)
+    at fulfilled (/snapshot/project/tmp/dist/build/src/tasks/test.js:0)
+
+[2020-09-14T14:58:15.521Z] Error:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 10.100.190.183...
+* TCP_NODELAY set
+* connect to 10.100.190.183 port 9090 failed: Connection refused
+* Failed to connect to comms-broker port 9090: Connection refused
+* Closing connection 0
+curl: (7) Failed to connect to comms-broker port 9090: Connection refused
+
+    at Object.<anonymous> (/snapshot/project/tmp/dist/build/src/tasks/test.js:0)
+    at Generator.next (<anonymous>)
+    at fulfilled (/snapshot/project/tmp/dist/build/src/tasks/test.js:0)

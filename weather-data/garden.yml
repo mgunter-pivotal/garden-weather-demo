@@ -28,4 +28,6 @@ tests:
       - '-c'
     args: ["curl -v http://weather-data:9091/nt-ms1/get-data > out.txt"]
     timeout: 30
+    dependencies:
+      - weather-data
     #this is a change

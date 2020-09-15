@@ -28,6 +28,8 @@ tests:
     command:
       - /bin/sh
       - '-c'
-    args: ["curl -v http://weather-app:8090/weather > out.txt"]
+    args: ["curl -v http://weather-app:8090/weather >out.txt"]
     timeout: 30
+    dependencies: 
+      - weather-app
     #this is a change

@@ -28,4 +28,6 @@ tests:
       - '-c'
     args: ["curl -v http://gps-data:9092/nt-ms2/get-data > out.txt"]
     timeout: 30
+    dependencies:
+      - gps-data
     #this is a change

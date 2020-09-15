@@ -27,5 +27,7 @@ tests:
       - '-c'
     args: ["curl -v http://comms-broker:9090/nt-ms2/get-data 2>&1  "]
     timeout: 60
+    dependencies:
+      - comms-broker
         # dependencies:
         #   - gps-data  
